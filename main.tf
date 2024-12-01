@@ -12,8 +12,8 @@ data "azurerm_resource_group" "bharathrs" {
 
 resource "azurerm_container_group" "bharathcontainerinstance" {
   name                = "bharathcontainerinstance"
-  location            = azurerm_resource_group.bharathrs.location
-  resource_group_name = azurerm_resource_group.bharathrs.name
+  location            =  data.azurerm_resource_group.bharathrs.location
+  resource_group_name = data.azurerm_resource_group.bharathrs.name
   ip_address_type     = "Public"
   dns_name_label      = "aci-label"
   os_type             = "Linux"

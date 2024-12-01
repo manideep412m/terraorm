@@ -22,3 +22,13 @@ steps:
     backendAzureRmStorageAccountName: 'manideepstg'
     backendAzureRmContainerName: 'mcontainer'
     backendAzureRmKey: 'terraform.tfstate'
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    environmentServiceNameAzureRM: 'aciserviceconnection'
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    environmentServiceNameAzureRM: 'aciserviceconnection'
